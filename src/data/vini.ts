@@ -1,0 +1,93 @@
+// Carta dei vini (brief §8.3): nessun prezzo e nessuna "Fascia"; "Uvage" → "Uvaggio".
+export type Wine = {
+  slug: string; nome: string; produttore: string; regione: string;
+  uvaggio: string; note: string;
+  abbinamento?: { testo: string; piatti?: string[] }; // slug dei piatti collegati
+};
+export type WineCategory = { slug: string; titolo: string; sottotitolo?: string; vini: Wine[] };
+
+export const vini: WineCategory[] = [
+  { slug: "bollicine", titolo: "Bollicine", sottotitolo: "Metodo Classico e Charmat", vini: [
+    { slug: "pignoletto-spumante-brut", nome: "Colli Bolognesi Pignoletto Spumante Brut DOCG",
+      produttore: "Tenuta Pincelli", regione: "Emilia-Romagna", uvaggio: "Pignoletto 100%",
+      note: "Fresco e fragrante, con note agrumate e di mela verde.",
+      abbinamento: { testo: "Aperitivo e salumi del tagliere", piatti: ["tagliere-della-trattoria"] } },
+    { slug: "franciacorta-cuvee-prestige", nome: "Franciacorta Brut DOCG «Cuvée Prestige»",
+      produttore: "Ca' del Bosco", regione: "Lombardia", uvaggio: "Chardonnay, Pinot Nero, Pinot Bianco",
+      note: "Elegante e cremoso: frutta a polpa bianca, agrumi e crosta di pane." },
+    { slug: "trento-altemasi-graal", nome: "Trento DOC Extra Brut «Altemasi Riserva Graal»",
+      produttore: "Cavit", regione: "Trentino-Alto Adige", uvaggio: "Chardonnay, Pinot Nero",
+      note: "Lungo affinamento sui lieviti: complesso e persistente, con sentori minerali e tostati." },
+    { slug: "champagne-bollinger-special-cuvee", nome: "Champagne Brut «Special Cuvée»",
+      produttore: "Bollinger", regione: "Francia", uvaggio: "Pinot Noir, Chardonnay, Meunier",
+      note: "Potente e strutturato, con una bollicina finissima.",
+      abbinamento: { testo: "Tutta la cena, nelle grandi occasioni" } },
+  ]},
+  { slug: "bianchi", titolo: "Bianchi", vini: [
+    { slug: "pignoletto-classico-vigna-tassinaia", nome: "Colli Bolognesi Pignoletto Classico DOCG «Vigna Tassinaia»",
+      produttore: "Gaggioli", regione: "Emilia-Romagna", uvaggio: "Pignoletto",
+      note: "Sapido e minerale, con il tipico retrogusto di mandorla amara.",
+      abbinamento: { testo: "I primi di pasta fresca", piatti: ["tagliatelle-al-ragu", "garganelli-salsiccia-porcini", "passatelli-asciutti"] } },
+    { slug: "albana-secca-vigna-dellolmo", nome: "Romagna Albana Secca DOCG «Vigna dell'Olmo»",
+      produttore: "Tre Monti", regione: "Emilia-Romagna", uvaggio: "Albana 100%",
+      note: "Corpo pieno e struttura importante, con note di albicocca matura ed erbe aromatiche." },
+    { slug: "sauvignon-terlano", nome: "Alto Adige Sauvignon DOC",
+      produttore: "Cantina Terlano", regione: "Trentino-Alto Adige", uvaggio: "Sauvignon Blanc",
+      note: "Aromatico e vibrante: sambuco, foglia di pomodoro e agrumi." },
+    { slug: "fiano-pietramara", nome: "Fiano di Avellino DOCG «Pietramara»",
+      produttore: "I Favati", regione: "Campania", uvaggio: "Fiano",
+      note: "Note fumé, nocciola tostata e fiori bianchi, su una netta vena minerale." },
+    { slug: "cervaro-della-sala", nome: "Cervaro della Sala Umbria IGT",
+      produttore: "Antinori", regione: "Umbria", uvaggio: "Chardonnay, Grechetto",
+      note: "Affinato in barrique: burroso ed elegante, con vaniglia, agrumi canditi e frutta tropicale." },
+  ]},
+  { slug: "rossi", titolo: "Rossi", sottotitolo: "Il cuore della trattoria", vini: [
+    { slug: "lambrusco-di-sorbara-le-radici", nome: "Lambrusco di Sorbara DOC «Le Radici»",
+      produttore: "Paltrinieri", regione: "Emilia-Romagna", uvaggio: "Sorbara",
+      note: "Frizzante, fresco e fragrante, con note di fragolina di bosco.",
+      abbinamento: { testo: "Tortellini in brodo e gnocco fritto", piatti: ["tortellini-in-brodo", "gnocco-fritto-caldo"] } },
+    { slug: "sangiovese-vigna-i-pini", nome: "Sangiovese di Romagna Superiore DOC «Vigna i Pini»",
+      produttore: "Fattoria Zerbina", regione: "Emilia-Romagna", uvaggio: "Sangiovese",
+      note: "Ciliegia matura e violetta, tannini levigati e un finale speziato." },
+    { slug: "chianti-classico-castello-di-ama", nome: "Chianti Classico DOCG",
+      produttore: "Castello di Ama", regione: "Toscana", uvaggio: "Sangiovese, Merlot",
+      note: "Classica eleganza toscana: ciliegia nera, tabacco dolce e un tannino setoso." },
+    { slug: "valpolicella-ripasso-superiore", nome: "Valpolicella Ripasso DOC Superiore",
+      produttore: "Zenato", regione: "Veneto", uvaggio: "Corvina, Rondinella, Corvinone",
+      note: "Caldo e vellutato: ciliegia sotto spirito, cacao e spezie dolci.",
+      abbinamento: { testo: "Cotoletta alla bolognese", piatti: ["cotoletta-alla-bolognese"] } },
+    { slug: "barolo-bussia", nome: "Barolo DOCG «Bussia»",
+      produttore: "Prunotto", regione: "Piemonte", uvaggio: "Nebbiolo 100%",
+      note: "Austero e complesso: rosa canina, catrame, cuoio e sottobosco.",
+      abbinamento: { testo: "Guancia brasata al Sangiovese", piatti: ["guancia-brasata-al-sangiovese"] } },
+    { slug: "brunello-di-montalcino", nome: "Brunello di Montalcino DOCG",
+      produttore: "Banfi", regione: "Toscana", uvaggio: "Sangiovese Grosso",
+      note: "Potente e caldo: frutti rossi maturi, vaniglia e spezie fini.",
+      abbinamento: { testo: "Tagliata e grigliata mista", piatti: ["tagliata-di-scottona", "grigliata-mista"] } },
+    { slug: "amarone-costasera", nome: "Amarone della Valpolicella DOCG «Costasera»",
+      produttore: "Masi", regione: "Veneto", uvaggio: "Corvina, Rondinella, Molinara",
+      note: "Maestoso e intenso: confettura di prugna, cioccolato fondente e fichi secchi.",
+      abbinamento: { testo: "Piatti di carne importanti e saporiti" } },
+    { slug: "ornellaia", nome: "Bolgheri Superiore DOC «Ornellaia»",
+      produttore: "Tenuta dell'Ornellaia", regione: "Toscana",
+      uvaggio: "Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot",
+      note: "Profondo, setoso e avvolgente, con una persistenza aromatica lunghissima." },
+  ]},
+  { slug: "dessert-e-meditazione", titolo: "Dessert e meditazione", vini: [
+    { slug: "albana-passito-dondona", nome: "Romagna Albana Passito DOCG «Dondona»",
+      produttore: "Fattoria Zerbina", regione: "Emilia-Romagna", uvaggio: "Albana",
+      note: "Miele di castagno, fichi secchi e albicocca disidratata.",
+      abbinamento: { testo: "Zuppa inglese e torta di riso", piatti: ["zuppa-inglese", "torta-di-riso"] } },
+    { slug: "vin-santo-antinori", nome: "Vin Santo del Chianti Classico DOC",
+      produttore: "Antinori", regione: "Toscana", uvaggio: "Trebbiano, Malvasia",
+      note: "Caldo e vellutato: nocciola tostata, scorza d'arancia candita e caramello." },
+    { slug: "barolo-chinato", nome: "Barolo Chinato",
+      produttore: "Marchesi di Barolo", regione: "Piemonte",
+      uvaggio: "Nebbiolo aromatizzato con china, spezie e radici",
+      note: "Aromatico e speziato, in perfetto equilibrio tra dolce e amaro.",
+      abbinamento: { testo: "Dolci al cioccolato, o da solo a fine pasto" } },
+  ]},
+];
+
+export const allWines = vini.flatMap((c) => c.vini);
+export const wineBySlug = (slug: string) => allWines.find((w) => w.slug === slug);

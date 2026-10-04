@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.vercel
+work
+# originali pesanti: fuori dal repository (vedi README)
+_source-assets/*.mp4
+_source-assets/fonts/satoshi.zip
